@@ -3,7 +3,7 @@ window.onload = function() {
 
   // the following lines will be replaced by docker/configurator, when it runs in a docker-container
   window.ui = SwaggerUIBundle({
-    url: "swagger.yaml",
+    url: "https://acemegaschool.github.io/evanston/asyncapi.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [
@@ -11,7 +11,11 @@ window.onload = function() {
       SwaggerUIStandalonePreset
     ],
     plugins: [
-      SwaggerUIBundle.plugins.DownloadUrl
+      SwaggerEditor.plugins.EditorContentType,
+      SwaggerEditor.plugins.EditorPreviewAsyncAPI,
+      SwaggerEditor.plugins.EditorPreviewApiDesignSystems,
+      SwaggerEditor.plugins.SwaggerUIAdapter,
+      SwaggerUIBundle.plugins.DownloadUrl,
     ],
     layout: "StandaloneLayout"
   });
